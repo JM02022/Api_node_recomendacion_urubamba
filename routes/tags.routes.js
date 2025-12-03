@@ -1,30 +1,30 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/user.controller");
+const tagsController = require("../controllers/tags.controller");
 
 // --------------------------------------------
-// Login de usuario
+// Listar todos los tags
 // --------------------------------------------
-router.post("/login", userController.login);
+router.get("/", tagsController.getAllTags);
 
 // --------------------------------------------
-// Registrar / Crear usuario
+// Obtener tag por ID
 // --------------------------------------------
-router.post("/usuarios", userController.register);
+router.get("/:tag_id", tagsController.getTagById);
 
 // --------------------------------------------
-// Obtener usuario por ID
+// Crear un nuevo tag
 // --------------------------------------------
-router.get("/usuarios/:usuario_id", userController.getUserById);
+router.post("/", tagsController.createTag);
 
 // --------------------------------------------
-// Actualizar usuario
+// Actualizar tag
 // --------------------------------------------
-router.put("/usuarios/:usuario_id", userController.updateUser);
+router.put("/:tag_id", tagsController.updateTag);
 
 // --------------------------------------------
-// Eliminar usuario
+// Eliminar tag
 // --------------------------------------------
-router.delete("/usuarios/:usuario_id", userController.deleteUser);
+router.delete("/:tag_id", tagsController.deleteTag);
 
 module.exports = router;

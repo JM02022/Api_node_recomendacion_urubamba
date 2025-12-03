@@ -1,30 +1,30 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/user.controller");
+const scoresController = require("../controllers/scores.controller");
 
 // --------------------------------------------
-// Login de usuario
+// Listar todos los scores
 // --------------------------------------------
-router.post("/login", userController.login);
+router.get("/", scoresController.getAllScores);
 
 // --------------------------------------------
-// Registrar / Crear usuario
+// Obtener scores por usuario
 // --------------------------------------------
-router.post("/usuarios", userController.register);
+router.get("/usuario/:usuario_id", scoresController.getScoresByUsuario);
 
 // --------------------------------------------
-// Obtener usuario por ID
+// Obtener scores por sitio
 // --------------------------------------------
-router.get("/usuarios/:usuario_id", userController.getUserById);
+router.get("/sitio/:sitio_id", scoresController.getScoresBySitio);
 
 // --------------------------------------------
-// Actualizar usuario
+// Crear o actualizar score
 // --------------------------------------------
-router.put("/usuarios/:usuario_id", userController.updateUser);
+router.post("/", scoresController.createOrUpdateScore);
 
 // --------------------------------------------
-// Eliminar usuario
+// Eliminar score
 // --------------------------------------------
-router.delete("/usuarios/:usuario_id", userController.deleteUser);
+router.delete("/:score_id", scoresController.deleteScore);
 
 module.exports = router;

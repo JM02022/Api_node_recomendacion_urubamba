@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json()); // Para leer JSON en solicitudes
 
 // Rutas
-app.use("/api", routes);
+app.use("/api_urubamba_recomendacion", routes);
 
 // Puerto desde .env
 const PORT = process.env.PORT || 4000;
