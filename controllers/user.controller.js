@@ -5,14 +5,12 @@ const userService = require("../services/user.service");
 // ----------------------------------------------
 const login = async (req, res) => {
   const { email, contrasena } = req.body;
-
   if (!email || !contrasena) {
     return res.status(400).json({ message: "Email y contraseña son requeridos" });
   }
 
   try {
     const user = await userService.loginUser(email, contrasena);
-
     if (!user) {
       return res.status(401).json({ message: "Usuario o contraseña incorrectos" });
     }

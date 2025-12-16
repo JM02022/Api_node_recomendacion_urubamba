@@ -35,12 +35,16 @@ const createUser = async (userData) => {
 // ----------------------------------------------
 const loginUser = async (email, contrasena) => {
   try {
+    // Buscar usuario por email
     const user = await Usuario.findOne({ where: { email } });
     if (!user) return null;
 
-    const passwordMatch = await bcrypt.compare(contrasena, user.contrasena);
-    if (!passwordMatch) return null;
+    // Comparar contraseñas en texto plano
+    if (user.contrasena !== contrasena) {
+      return null;
+    }
 
+    // Si las contraseñas coinciden, retornar el usuario
     return {
       usuario_id: user.usuario_id,
       nombre: user.nombre,
