@@ -14,6 +14,9 @@ const tagsRoutes = require("./tags.routes");
 const sitioTagRoutes = require("./sitio_tag.routes");
 const scoresRoutes = require("./scores.route");
 const analyticsRoutes = require("./analytics.routes");
+const recomendacionesRoutes = require("./recomendaciones.routes");
+const sitioCategoriaCBRoutes = require("./sitioCategoriaCB.routes");
+const sitioTagCBRoutes = require("./sitioTagCB.routes");
 
 // Rutas agrupadas
 router.use("/analytics", analyticsRoutes);
@@ -28,5 +31,9 @@ router.use("/users", userRoutes);
 router.use("/preferencias", preferenciasRoutes);
 router.use("/sitios_turisticos", actividadesRoutes);
 router.use("/sitios_categorias", sitios_categeoriaRoutes);
+
+router.use("/recomendaciones", recomendacionesRoutes);
+router.use("/sitios_categorias_cb", sitioCategoriaCBRoutes);
+router.use("/sitios_tags_cb", sitioTagCBRoutes);
 
 module.exports = router; 
